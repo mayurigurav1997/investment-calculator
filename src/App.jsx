@@ -1,15 +1,17 @@
-import { useState } from "react";
-import Header from "./components/Header"
-import Results from "./components/Results"
-import UserInput from "./components/UserInput"
+import { useState } from 'react';
+
+import Header from './components/Header.jsx';
+import UserInput from './components/UserInput.jsx';
+import Results from './components/Results.jsx';
 
 function App() {
   const [userInput, setUserInput] = useState({
-    initialInvestment: 100000,
+    initialInvestment: 10000,
     annualInvestment: 1200,
-    expextcedReturn: 6,
+    expectedReturn: 6,
     duration: 10,
   });
+
   function handleChange(inputIdentifier, newValue) {
     setUserInput((prevUserInput) => {
       return {
@@ -18,13 +20,14 @@ function App() {
       };
     });
   }
+
   return (
     <>
       <Header />
-      <UserInput onChange={handleChange} userInput={userInput} />
+      <UserInput userInput={userInput} onChange={handleChange} />
       <Results input={userInput} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
